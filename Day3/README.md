@@ -59,7 +59,13 @@ And now let's do some example's of Arithemetic Operations in Python :
 
 ```print('Exponentiation:', 2 ** 3)        # 8 (2 * 2 * 2) ```
 
+Now floating point numbers are numbers with decimal points. They're used when precision matters- like in science, measurements, or anything that isn't a whole number.
+Example:
 
+```print('Floating point Number, PI', 3.14)```
+
+```print('Floating Point Number, gravity;, 9.81)```
+Floating point numbers are used when precision matters because they allow for representation and manipulation of real numbers with a fractional component. This is essentail for applications where whole numbers (integers) are insuffcient.
  
  
  ---
