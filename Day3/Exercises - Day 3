@@ -1,0 +1,168 @@
+#1.  Declare age as integer variable 
+my_age=20 
+
+#2. Declare height as a float  variable 
+my_height = 53
+
+# 3. Declare a variable that store a complex number 
+my_complex_number= 5+15j 
+
+#4. Write a script that prompts the user to enter base 
+# and height of the triangle and calculate an area of this triangle (area = 0.5 x b x h).
+# Sccript to calculate the area of a triangle 
+print("---Triangle Area Calculator ---")
+
+# Prompt the user to enter base and height 
+base_str=input("Enter the base of the triangle: ")
+height_str=input("Enter the height of the triangle: ")
+
+#Convert input strings to float numbers 
+base= float(base_str) 
+height=float(height_str)
+
+#Calculate the area of the triangle 
+area= 0.5 * base * height 
+
+# Print the calculated area 
+print(f"The area of the triangle is: {area}")
+
+#5.Write a script that prompts the user to enter side a, side b,
+# and side c of the triangle. Calculate the perimeter of the triangle (perimeter = a + b + c).
+
+# Prompt the user to enter the length of side a
+side_a=float(input("Enter the lenght of side a: "))
+
+# Prompt the user to enter the length of side b 
+side_b= float(input("Enter the length of side b: "))
+
+# Prompt the user to enter the length of side c 
+side_c=float(input("Enter the length of side c: "))
+
+# Calculate the perimeter of the triangle 
+perimeter= side_a + side_b +side_c
+
+# Print the calcualted perimeter 
+print(f"The primeter of the triangle is: {perimeter}")
+
+#6. Get length and width of a rectangle using prompt. Calculate its area (area = length x width)
+# and perimeter (perimeter = 2 x (length + width))
+
+#Get length from the user input 
+length=float(input("Enter the length of the rectangle: "))
+
+# Get width from user input 
+width=float(input("Enter the width of the rectangle: "))
+
+# calculate the area 
+area=length* width
+
+#Calculate the perimeter
+perimeter=2* (length+ width)
+
+#Print the results 
+print(f"\nArea of the rectangle: {area:.2f}")
+print(f"Perimeter of the rectangle: {perimeter:.2f}")
+
+#7.Get radius of a circle using prompt. Calculate the area (area = pi x r x r) 
+# and circumference (c = 2 x pi x r) where pi = 3.14.
+
+# Define the value of pi 
+PI=3.14
+
+# Get the radius from the user 
+try:
+    radius=float(input("Enter the radius of the circle: "))
+except ValueError:
+    print("Invalid input. Please enter a valid number.")
+    radius=0
+    exit()
+# Calculate the area 
+area= PI * radius * radius 
+
+# Calculate the circumference 
+circumference = 2 * PI * radius 
+
+# Print the results 
+print(f" The area of the circle is: {area:.2f}")
+print(f"The circumference of the cricle is: {circumference:.2f}")
+
+#8. Calculate the slope, x-intercept and y-intercept of y = 2x -2
+# Define the equation parameters 
+slope_m=2
+y_intercept_b= -2
+
+# Calculate the x intercept 
+# Set y =0 and slove for x: 0= slope_m * x+y_intercept_b
+#x= -y_intercept_b/ slope_m 
+x_intercept = -y_intercept_b/ slope_m 
+
+print(f"Slope: {slope_m}")
+print(f"Y-intercept: (0, {y_intercept_b})")
+print(f"x-intercept: ({x_intercept}, 0)")
+
+# 9. Slope is (m = y2-y1/x2-x1). Find the slope and Euclidean distance between point (2, 2) and point (6,10)
+import math 
+# Define the points 
+point1=(2,2)
+point2=(6,10)
+
+# Extract coordinates 
+x1, y1 =point1
+x2,y2=point2
+
+#Calculate the slope (m=y2 - y1 / x2-x1)
+slope=(y2-y1)/ (x2-x1)
+
+# Calculate thes Eucliden distance 
+#Distance =sqrt((x2-x1)^2+ (y2-y1)^2)
+euclidean_distance= math.sqrt((x2 -x1)**2+ (y2-y1)**2)
+
+print(f"The slope (m) between the points is: {slope}")
+print(f"The eucliden distance between the points is: {euclidean_distance}")
+
+# Compare the slopes in tasks 8 and 9 
+print("---Comparison Results---")
+if slope_m==slope: 
+    print(f"The slopes are equal. Both slopes have a value of {slope_m}.")
+elif slope_m> slope: 
+    print(f"The first slope ({slope_m}) is greate than the second slope ({slope}.)")
+else: 
+    print(f"The second slope({slope}) is greater than the first slope({slope_m}).")
+
+# 11. Calculate the value of y (y = x^2 + 6x + 9). Try to use different x values and figure out at what x value y is going to be 0
+def calculate_y(x):
+    """Calculates y for the equation y= x^2 + 6x+9"""
+    y=x**2+6*x+9 
+    return y 
+# Test with different x values 
+test_values=[-5,-4,-3,-2,-1,0,1]
+
+print("---Calculating y for different x values---")
+for x_val in test_values: 
+    y_val=calculate_y(x_val)
+    print(f"When x= {x_val}, y={y_val}")
+    
+print("\n--- Figuring out at what x value y is 0---")
+# The equation has a single root at x= -3
+# We can find this programmatically by iterating or using the quadratic formula 
+found_root = False
+for x_va in range(-10,10): #Check a range of integer values 
+    y_val+calculate_y(x_val)
+    if y_val == 0:
+        print(f"Found the value: y is 0 when x = {x_val}")
+        found_root= True
+        break 
+    if not found_root:
+        print("Could not find an integer x value when y is 0 within the tested range.")
+
+# 12. Find the length of 'python' and 'dragon' and make a falsy comparison statement.
+length_python = len('python')
+length_dragon = len('dragon')
+
+print(f"Length of 'python': {length_python}")
+print(f"Length of 'dragon': {length_dragon}")
+
+#Falsy comparison statements (evalulate to false)
+print(f"Comparison 'python' length > 'dragon' length: {length_python > length_dragon}")
+print(f"Comparison 'python' length != 'dragon' length: {length_python != length_dragon}")
+print(f"Comparison 'python' length < 'dragon' length: {length_python < length_dragon}")
