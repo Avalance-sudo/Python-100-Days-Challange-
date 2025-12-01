@@ -166,3 +166,159 @@ print(f"Length of 'dragon': {length_dragon}")
 print(f"Comparison 'python' length > 'dragon' length: {length_python > length_dragon}")
 print(f"Comparison 'python' length != 'dragon' length: {length_python != length_dragon}")
 print(f"Comparison 'python' length < 'dragon' length: {length_python < length_dragon}")
+# 13.Use and operator to check if 'on' is found in both 'python' and 'dragon'
+word1= 'python'
+word2= 'dragon'
+substring = 'on'
+
+# Use the 'and' operator to check for the substring in both strings 
+is_present_in_both=(substring in word1) and (substring in word2)
+
+print(f"Is '{substring}' in '{word1}'? {substring in word1}")
+print(f"Is '{substring}' in '{word2}'? {substring in word2}")
+print(f"Is '{substring}' present in both words? {is_present_in_both}")
+
+# 14. I hope this course is not full of jargon. Use in operator to check if jargon is in the sentence.
+# The sentence we want to check 
+sentence= "I hope this course is not full of jargon"
+
+# The word we are looking for 
+word_to_find ="jargon"
+
+# Use the in operator to perform the check 
+if word_to_find in sentence:
+    print(f"Yes, the word' {word_to_find}")
+else: 
+    print(f"No,the word '{word_to_find}")
+
+# 15. There is no 'on' in both dragon and python
+word1= "dragon"
+word2="python"
+segment="on"
+
+if segment not in word1 and segment not in word2:
+    print(f"Verified: There is no '{segment}' in both '{word1}' and '{word2}'.")
+else: 
+    print("Check failed.")
+
+#16. Find the length of the text python and convert the value to float and convert it to string
+# Define the text 
+text="python"
+
+# find the length of the text result is an integer: 6
+length_int=len(text)
+print(f"Length as integer: {length_int}, Type: {type(length_int)}")
+
+# Covert the integer value to a float 
+length_float = float(length_int)
+print(f"Length as float: {length_float}")
+
+#Covert the float to a string 
+length_str=str(length_float)
+print(f"Length as string: '{length_str}', Type: {type(length_str)}")
+
+#17. Even numbers are divisible by 2 and the remainder is zero. How do you check if a number is even or not using python?
+my_number =14 
+# Check if the remainder of number /2 is equal to 0
+if my_number % 2 == 0:
+    print(f"{my_number} is an even number.")
+else: 
+    print(f"{my_number} is an odd number")
+
+#18. Check if the floor division of 7 by 3 is equal to the int converted value of 2.7.
+floor_division_result= 7//3
+# Convert to integer useing the int() function to convert floating point number to an integer
+int_converted_value=int(2.7)
+# Compare the results use the equality operator == to check if the two values are equal
+are_equal=(floor_division_result == int_converted_value)
+
+# 19. Check if type of '10' is equal to type of 10
+# check if the type of string '10' 
+#is equal to the type of the integer 10 
+comparison_result=type('10')==type(10)
+
+print(f"The type of '10' is: {type('10')}")
+print(f"The type of 10 is: {type(10)}")
+print(f"Are the type equal? {comparison_result}")
+
+#Check if int('9.8') is equal to 10
+print(int('9.8')== 10)
+
+# 21. Writ a script that prompts the user to enter hours and rate per hour. Calculate pay of the person?
+# Script to calculate pay based on hours worked and rate per hour 
+#input() returns a string, so we need to convert it to a float later.
+hours_input = input("Enter hours worked: ")
+rate_input=input("Enter Rate per Hour: ")
+# Convert input strings to float number
+try: 
+    hours=float(hours_input)
+    rate=float(rate_input)
+    #total pay
+    pay=hours * rate
+    #Display the result 
+    # we format the output to two decimal 
+    print(f"\nPay: ${pay:.2f}")
+except ValueError:
+    print("Invalid input. Please enter valid numbers for hours and rate.")
+    
+# 22. Write a script that prompts the user to enter number of years. Calculate the number of seconds a person can live. Assume a person can live hundred years
+# Calculate total potential lifespan in seconds, assuming a maximum age of 100 years.
+# Define the assumed maximum lifespan in years
+MAX_LIFESPAN_YEARS= 100
+
+# Constants for calculations 
+DAYS_PER_YEAR= 365.25 #Accounts for leap year
+HOURS_PER_DAY= 24
+MINUTES_PER_DAY= 60
+SECONDS_PER_MINUTE=60 
+
+# Calculate total seconds in a century 
+total_seconds_in_century=(
+    MAX_LIFESPAN_YEARS*
+    DAYS_PER_YEAR*
+    HOURS_PER_DAY*
+    MINUTES_PER_DAY*
+    SECONDS_PER_MINUTE
+)
+try:
+    years_lived_input = input("Enter the number of years you have lived: ")
+    years_lived = float(years_lived_input)
+
+    if years_lived < 0:
+        print("Error: Years lived cannot be negative.")
+    elif years_lived > MAX_LIFESPAN_YEARS:
+        print(f"Assuming maximum lifespan is {MAX_LIFESPAN_YEARS} years. Calculating potential remaining time.")
+        years_remaining = 0 # If they lived longer than assumed maximum
+    else:
+        # 2. Calculate remaining years
+        years_remaining = MAX_LIFESPAN_YEARS - years_lived
+        #  Calculate remaining lifespan 
+        # We resure the total seconds calculation structure,but for the remaining years
+        # Reuse the total seconds calculation structure, but for the remaining years
+        seconds_remaining=(years_remaining * DAYS_PER_YEAR * HOURS_PER_DAY * MINUTES_PER_DAY* SECONDS_PER_MINUTE )
+
+        # Display the result 
+        #Using comma formatting for readability of large numbers
+        print("-" * 40)
+        print(f"Assuming a maximum lifespan of {MAX_LIFESPAN_YEARS} years.")
+        print(f"You have approximatley{years_remaining:.1f} years remaining.")
+        print(f"You have approximately {seconds_remaining:,.0f} potential seconds left to live.")
+        print("-" * 40)
+
+except ValueError:
+    # Handle cases where the user enters non-numeric input 
+    print("\nError Please enter a vaild number for the years lived.")
+    
+# 23. Write a Python script that displays the following table
+#Write a Python script that displays the following table
+#1 1 1 1 1
+#3 1 3 9 27
+#5 1 5 25 125
+for n in range(1,6): #Iterate from 1 to 5 (exclusive of 6)
+    #Calculate n,n squared, and n cubed 
+    n_squared= n ** 2
+    n_cube= n**3 
+    
+    # Print the values for the current row 
+    # The '1' is aconstant in the second column 
+    print(f"{n} {n_squared} {n_cube}")
